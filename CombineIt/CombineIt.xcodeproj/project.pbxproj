@@ -20,7 +20,6 @@
 		764FFBEC283C02A7000F25AA /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FFBEB283C02A7000F25AA /* WebView.swift */; };
 		764FFBEE283C02AF000F25AA /* DocumentationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FFBED283C02AF000F25AA /* DocumentationLinkView.swift */; };
 		76B39753283E748E00D551F3 /* BooksWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B39752283E748E00D551F3 /* BooksWrapper.swift */; };
-		76CB04E7286F8A9D00124A0E /* CombineItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CB04E6286F8A9D00124A0E /* CombineItTests.swift */; };
 		76CB04EE286F8AB300124A0E /* PublishersSequenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CB04ED286F8AB300124A0E /* PublishersSequenceTests.swift */; };
 		76F1AB5F283CFEB0007D24D9 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1AB5E283CFEB0007D24D9 /* Book.swift */; };
 		76F1AB61283CFFD5007D24D9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1AB60283CFFD5007D24D9 /* API.swift */; };
@@ -53,7 +52,6 @@
 		764FFBED283C02AF000F25AA /* DocumentationLinkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentationLinkView.swift; sourceTree = "<group>"; };
 		76B39752283E748E00D551F3 /* BooksWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksWrapper.swift; sourceTree = "<group>"; };
 		76CB04E4286F8A9D00124A0E /* CombineItTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CombineItTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		76CB04E6286F8A9D00124A0E /* CombineItTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineItTests.swift; sourceTree = "<group>"; };
 		76CB04ED286F8AB300124A0E /* PublishersSequenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishersSequenceTests.swift; sourceTree = "<group>"; };
 		76F1AB5E283CFEB0007D24D9 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		76F1AB60283CFFD5007D24D9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 		76CB04E5286F8A9D00124A0E /* CombineItTests */ = {
 			isa = PBXGroup;
 			children = (
-				76CB04E6286F8A9D00124A0E /* CombineItTests.swift */,
 				76CB04ED286F8AB300124A0E /* PublishersSequenceTests.swift */,
 			);
 			path = CombineItTests;
@@ -289,7 +286,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76CB04E7286F8A9D00124A0E /* CombineItTests.swift in Sources */,
 				76CB04EE286F8AB300124A0E /* PublishersSequenceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
