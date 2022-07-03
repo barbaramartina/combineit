@@ -350,6 +350,201 @@ class PublishersSequenceTests: XCTestCase {
         
     }
     
+    /// filter operation is also available as a publisher operator
+    /// https://developer.apple.com/documentation/combine/publishers/sequence/filter(_:)
+    func testSequenceFilter() {
+        
+        // expect for the values to be received
+        let expectation = XCTestExpectation(description: "")
+        
+        // the sequence to create a Sequence Publisher
+        let sequence = [1,2,3,4]
+
+        // to assign the sequence received
+        var values: [Int?] = []
+        
+        // create a sequence publisher and subscribe
+        let subscription = sequence.publisher
+            .filter { $0.isMultiple(of: 3) }
+            .sink { completion in
+                switch completion {
+                    case .finished:
+                        break
+                    case .failure(_):
+                        XCTFail()
+                }
+                expectation.fulfill()
+            } receiveValue: { value in
+                values.append(value)
+            }
+
+
+
+        // wait for the publisher to be processed by allSatisfy instance method
+        wait(for: [expectation], timeout: 1.0)
+        XCTAssertNotNil(subscription)
+        XCTAssertEqual(values.count, 1)
+        
+    }
+    
+    /// Used for when you are not interested in the values produced by a publisher, but you want to know when it finishes, and then
+    /// check if there was an error or a succesfull termination
+    /// https://developer.apple.com/documentation/combine/publishers/sequence/ignoreoutput()
+    func testSequenceIgnoreOutput() {
+        
+        // expect for the values to be received
+        let expectation = XCTestExpectation(description: "")
+        
+        // the sequence to create a Sequence Publisher
+        let sequence = [1,2,3,4]
+
+        // to assign the sequence received
+        var values: [Int?] = []
+        
+        // create a sequence publisher and subscribe
+        let subscription = sequence.publisher
+            .ignoreOutput()
+            .sink { completion in
+                switch completion {
+                    case .finished:
+                        break
+                    case .failure(_):
+                        XCTFail()
+                }
+                expectation.fulfill()
+            } receiveValue: { value in
+                values.append(value)
+            }
+
+
+
+        // wait for the publisher to be processed by allSatisfy instance method
+        wait(for: [expectation], timeout: 1.0)
+        XCTAssertNotNil(subscription)
+        // the value closure should never be called
+        XCTAssertEqual(values.count, 0)
+        
+    }
+    
+    /// this is an easy one, where you get the first element of the sequence, if any
+    /// https://developer.apple.com/documentation/combine/publishers/sequence/first()-70lwp
+    /// It can be used with a filter, to choose the first element which fullfil a confition
+    /// https://developer.apple.com/documentation/combine/publishers/sequence/first(where:)-6o4zh
+    func testSequenceFirst() {
+        
+        // expect for the values to be received
+        let expectation = XCTestExpectation(description: "")
+        
+        // the sequence to create a Sequence Publisher
+        let sequence = [1,2,3,4]
+
+        // to assign the sequence received
+        var values: [Int?] = []
+        
+        // create a sequence publisher and subscribe
+        let subscription = sequence.publisher
+            .first()
+            .sink { completion in
+                switch completion {
+                    case .finished:
+                        break
+                    case .failure(_):
+                        XCTFail()
+                }
+                expectation.fulfill()
+            } receiveValue: { value in
+                values.append(value)
+            }
+
+
+
+        // wait for the publisher to be processed by allSatisfy instance method
+        wait(for: [expectation], timeout: 1.0)
+        XCTAssertNotNil(subscription)
+        // only the first value should be received
+        XCTAssertEqual(values.count, 1)
+        
+    }
+    
+    /// this is an easy one, where you get the last element of the sequence, if any
+    /// https://developer.apple.com/documentation/combine/publishers/sequence/last()-66x9v
+    /// Can also be used in combination with a confition
+    /// https://developer.apple.com/documentation/combine/publishers/sequence/last(where:)-33v3b
+    func testSequenceLast() {
+        
+        // expect for the values to be received
+        let expectation = XCTestExpectation(description: "")
+        
+        // the sequence to create a Sequence Publisher
+        let sequence = [1,2,3,4]
+
+        // to assign the sequence received
+        var values: [Int?] = []
+        
+        // create a sequence publisher and subscribe
+        let subscription = sequence.publisher
+            .last()
+            .sink { completion in
+                switch completion {
+                    case .finished:
+                        break
+                    case .failure(_):
+                        XCTFail()
+                }
+                expectation.fulfill()
+            } receiveValue: { value in
+                values.append(value)
+            }
+
+
+
+        // wait for the publisher to be processed by allSatisfy instance method
+        wait(for: [expectation], timeout: 1.0)
+        XCTAssertNotNil(subscription)
+        // only the first value should be received
+        XCTAssertEqual(values.count, 1)
+        
+    }
+    
+    /// Transform each element into another type of element and return a puiblisher which has a sequence as value with the new
+    /// type of returned value
+    /// https://developer.apple.com/documentation/combine/publishers/sequence/map(_:)-nh4n
+    func testSequenceMap() {
+        
+        // expect for the values to be received
+        let expectation = XCTestExpectation(description: "")
+        
+        // the sequence to create a Sequence Publisher
+        let sequence = [1,2,3,4]
+
+        // to assign the sequence received
+        var values: [Int?] = []
+        
+        // create a sequence publisher and subscribe
+        let subscription = sequence.publisher
+            .map { $0 * 2 }
+            .sink { completion in
+                switch completion {
+                    case .finished:
+                        break
+                    case .failure(_):
+                        XCTFail()
+                }
+                expectation.fulfill()
+            } receiveValue: { value in
+                values.append(value)
+            }
+
+
+
+        // wait for the publisher to be processed by allSatisfy instance method
+        wait(for: [expectation], timeout: 1.0)
+        XCTAssertNotNil(subscription)
+        // only the first value should be received
+        XCTAssertEqual(values.count, 4)
+        
+    }
+    
 
 
 
